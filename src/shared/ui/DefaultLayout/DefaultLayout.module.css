@@ -1,0 +1,9 @@
+.headerSpacer {
+  flex-shrink: 0;
+  height: 0;
+  transition: height var(--transition-duration) ease;
+
+  :global(body[data-transparency="solid"]) & {
+    height: var(--header-height);
+  }
+}

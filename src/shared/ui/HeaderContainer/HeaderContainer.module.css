@@ -1,0 +1,45 @@
+.headerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  transform: translateY(0);
+  transition:
+    transform var(--transition-duration) ease,
+    background-color var(--transition-duration) ease,
+    color var(--transition-duration) ease;
+
+  :global(body[data-color-set="light"]) & {
+    color: var(--color-black);
+  }
+
+  :global(body[data-color-set="dark"]) & {
+    color: var(--color-white);
+  }
+
+  :global(body[data-transparency="solid"][data-color-set="light"]) & {
+    background-color: var(--color-white);
+  }
+
+  :global(body[data-transparency="solid"][data-color-set="dark"]) & {
+    background-color: var(--color-black);
+  }
+
+  :global(body[data-transparency="transparent"][data-color-set="light"]) &[data-scrolled="true"]:not([data-scroll-direction="down"]) {
+    background-color: var(--color-white);
+  }
+
+  :global(body[data-transparency="transparent"][data-color-set="dark"]) &[data-scrolled="true"]:not([data-scroll-direction="down"]) {
+    background-color: var(--color-black);
+  }
+
+  &[data-scrolled="true"][data-scroll-direction="down"] {
+    transform: translateY(-100%);
+  }
+}
