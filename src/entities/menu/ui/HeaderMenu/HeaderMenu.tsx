@@ -1,11 +1,19 @@
+import { cacheLife, cacheTag } from "next/cache";
 import type { CatalogMenuItemDto } from "@/entities/menu/api";
 import { getMenu } from "@/entities/menu/api";
 
 /**
  * Server Component: loads menu on the server and renders into the client header.
  * Pass as `children` to `HeaderContainer` — no client fetch / no hydration.
+ *
+ * `'use cache'` caches the RSC output across requests (Cache Components).
+ * Invalidate with `revalidateTag('menu', 'max')` when the catalog changes.
  */
-export async function HeaderMenu() {
+export const HeaderMenu = async () => {
+  "use cache";
+  cacheLife("hours");
+  cacheTag("menu");
+
   let roots: CatalogMenuItemDto[] = [];
 
   try {
@@ -36,4 +44,4 @@ export async function HeaderMenu() {
       </ul>
     </nav>
   );
-}
+};

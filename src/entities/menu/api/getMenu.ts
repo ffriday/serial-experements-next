@@ -12,6 +12,7 @@ export const getMenu = cache(async (): Promise<CatalogMenuDto> => {
   return http<CatalogMenuDto>(API_PATHS.menu, {
     next: {
       revalidate: 3600,
+      tags: ["menu"],
     },
   });
 });

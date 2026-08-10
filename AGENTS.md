@@ -19,6 +19,7 @@ A learning pet project: the owner is studying modern Next.js and AI-assisted dev
 ## Stack
 
 - Next.js 16 (App Router) + React 19, React Compiler enabled
+- Cache Components (`cacheComponents: true`) — prefer `'use cache'` + `cacheLife` / `cacheTag` for cross-request caching
 - TypeScript, `strict: true`
 - Tailwind CSS 4 + CSS Modules (see conventions below)
 - Biome for lint and format — this project does NOT use ESLint or Prettier

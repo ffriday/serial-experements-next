@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
+  // Enables `'use cache'`, cacheLife/cacheTag, and PPR-style Cache Components.
+  cacheComponents: true,
 };
 
 export default nextConfig;
