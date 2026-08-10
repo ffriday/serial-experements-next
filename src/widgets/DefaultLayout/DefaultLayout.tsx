@@ -9,7 +9,7 @@ import {
 import { HeaderContainer } from "@/shared/ui/HeaderContainer";
 import s from "./DefaultLayout.module.css";
 
-type DefaultLayoutProps = LayoutProps<"/"> & {
+type DefaultLayoutProps = LayoutProps<"/[locale]"> & {
   children: React.ReactNode;
   transparencyType?: TransparencyType;
   colorType?: ColorSetType;
