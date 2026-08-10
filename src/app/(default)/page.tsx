@@ -1,14 +1,19 @@
-import Image from "next/image";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { resourceQuery } from "@/entities/resource/api";
+import { ResourceView } from "@/entities/resource/ui/ResourceView";
+import { getQueryClient } from "@/shared/api/get-query-client";
 
-export default function Home() {
+export default async function Home() {
+  const queryClient = getQueryClient();
+
+  await queryClient.prefetchQuery(resourceQuery);
+
   return (
     <main className="min-h-screen">
       <h1>HOME</h1>
-      {Array.from({ length: 100 }).map((_, i) => (
-        <div key={i} className="flex items-center gap-4 my-3 bg-slate-800">
-          {i}
-        </div>
-      ))}
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        {/* <ResourceView /> */}
+      </HydrationBoundary>
     </main>
   );
 }

@@ -1,0 +1,22 @@
+---
+description: Feature-Sliced Design layer boundaries for src/
+globs: "src/**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# FSD architecture
+
+Layers (top → bottom): `app` → `widgets` → `features` → `entities` → `shared`.
+
+- Import only from layers **below**. Never upward (e.g. `shared` must not import `features`).
+- Slices on the same layer must not import each other.
+- `src/app` = routing only (layouts, pages, route groups). Real UI/logic lives in lower layers.
+- New UI: pick the lowest layer that fits (entity UI vs widget composition vs feature interaction).
+
+```ts
+// ❌ BAD — entity imports a widget
+import { DefaultLayout } from '@/widgets/DefaultLayout';
+
+// ✅ GOOD — app/widget composes entities
+import { HeaderMenu } from '@/entities/menu/ui/HeaderMenu';
+```

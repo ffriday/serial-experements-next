@@ -1,0 +1,24 @@
+---
+description: React / Next.js component patterns for this App Router project
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# React patterns
+
+- Prefer Server Components. Add `'use client'` only for interactivity, browser APIs, or client-only hooks.
+- Colocate UI: `ComponentName/ComponentName.tsx` + optional `ComponentName.module.css` + `index.ts` re-export.
+- Tailwind for one-off layout/spacing; CSS Modules for component-specific styles; tokens in `@/shared/styles/tokens.css`.
+- Pass Server Component output as `children` into client shells (e.g. `HeaderMenu` → `HeaderContainer`) instead of fetching on the client.
+
+```tsx
+// ❌ BAD — client fetch just to render static nav
+'use client';
+useEffect(() => { void loadMenu().then(setMenu); }, []);
+
+// ✅ GOOD — server load, client only where needed
+export async function HeaderMenu() {
+  const menu = await getMenu();
+  return <nav>...</nav>;
+}
+```

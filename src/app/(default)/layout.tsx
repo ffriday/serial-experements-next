@@ -1,1 +1,1 @@
-export { default } from '@/shared/ui/DefaultLayout/DefaultLayout';
+export { DefaultLayout as default } from "@/widgets/DefaultLayout";

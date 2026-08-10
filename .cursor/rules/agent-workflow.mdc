@@ -1,0 +1,12 @@
+---
+description: Plan then Agent — small reviewable slices; lint/typecheck before done
+alwaysApply: true
+---
+
+# Agent workflow
+
+1. Ambiguous / legacy / architecture → Plan or Ask first; propose the smallest change.
+2. After approval → implement **one slice**; no drive-by refactors or new deps without asking.
+3. Match existing patterns; briefly explain non-trivial Server vs Client / fetch choices.
+4. Before finishing: `pnpm lint` and `pnpm typecheck`; fix issues.
+5. Do not commit, push, or open a PR unless explicitly asked.

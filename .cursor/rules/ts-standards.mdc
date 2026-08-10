@@ -1,0 +1,21 @@
+---
+description: TypeScript standards — strict typing, no any, precise domain types
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# TypeScript standards
+
+- `strict: true` — no `any`. Prefer precise types; shared types live in `@/shared/types`.
+- Prefer `type` aliases for props and DTOs; narrow with type guards / filters instead of casts.
+- Import cross-folder via `@/` only (e.g. `@/entities/menu/api`).
+- Entity API: keep DTO types next to the API; map to model types when the UI needs a different shape.
+- After non-trivial changes, leave the tree green: `pnpm lint` and `pnpm typecheck`.
+
+```ts
+// ❌ BAD
+const item = nodes[id] as CatalogMenuItemDto;
+
+// ✅ GOOD
+.filter((item): item is CatalogMenuItemDto => item != null);
+```
