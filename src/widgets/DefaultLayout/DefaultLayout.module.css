@@ -7,3 +7,12 @@
     height: var(--header-height);
   }
 }
+
+.logo {
+  height: 28px;
+  aspect-ratio: 138 / 28;
+
+  @media (max-width: 768px) {
+    height: 24px;
+  }
+}

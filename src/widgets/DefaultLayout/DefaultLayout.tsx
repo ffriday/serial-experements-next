@@ -7,6 +7,7 @@ import {
   type TransparencyType,
 } from "@/shared/types/view";
 import { HeaderContainer } from "@/shared/ui/HeaderContainer";
+import { Icon } from "@/shared/ui/Icon";
 import s from "./DefaultLayout.module.css";
 
 type DefaultLayoutProps = LayoutProps<"/[locale]"> & {
@@ -26,7 +27,10 @@ export const DefaultLayout = ({
       {...bodyDataProps({ colorType, transparencyType })}
     >
       <HeaderContainer>
-        <HeaderMenu />
+        <div className="flex w-full items-center justify-between gap-4">
+          <HeaderMenu />
+          <Icon name="logo" title="Boxraw" className={s.logo} />
+        </div>
       </HeaderContainer>
       <div className={s.headerSpacer} aria-hidden="true" />
       {children}
