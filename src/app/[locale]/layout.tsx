@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { QueryProvider } from "@/shared/api/QueryProvider";
@@ -35,7 +36,11 @@ export default async function RootLayout({
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <QueryProvider>{children}</QueryProvider>
+      <QueryProvider>
+        <NextIntlClientProvider locale={locale} messages={null}>
+          {children}
+        </NextIntlClientProvider>
+      </QueryProvider>
     </html>
   );
 }

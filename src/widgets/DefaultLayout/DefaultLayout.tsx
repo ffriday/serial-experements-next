@@ -1,4 +1,4 @@
-import { HeaderMenu } from "@/entities/menu/ui/HeaderMenu";
+import { CatalogMenu } from "@/entities/menu/ui/CatalogMenu";
 import { bodyDataProps } from "@/shared/lib/bodyDataProps";
 import {
   ColorSet,
@@ -7,6 +7,7 @@ import {
   type TransparencyType,
 } from "@/shared/types/view";
 import { HeaderContainer } from "@/shared/ui/HeaderContainer";
+import { HeaderMenu } from '@/entities/menu/ui/HeaderMenu';
 import { Icon } from "@/shared/ui/Icon";
 import s from "./DefaultLayout.module.css";
 
@@ -27,9 +28,10 @@ export const DefaultLayout = ({
       {...bodyDataProps({ colorType, transparencyType })}
     >
       <HeaderContainer>
-        <div className="flex w-full items-center justify-between gap-4">
-          <HeaderMenu />
+        <div className="flex w-full items-center justify-between gap-8">
+          <CatalogMenu />
           <Icon name="logo" title="Boxraw" className={s.logo} />
+          <HeaderMenu />
         </div>
       </HeaderContainer>
       <div className={s.headerSpacer} aria-hidden="true" />

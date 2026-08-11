@@ -1,0 +1,21 @@
+.root {
+  appearance: none;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.root:disabled {
+  cursor: default;
+}

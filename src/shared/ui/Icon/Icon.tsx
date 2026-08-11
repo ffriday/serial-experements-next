@@ -8,7 +8,7 @@ export type IconProps = Omit<React.SVGProps<SVGSVGElement>, "children"> & {
 };
 
 export const Icon = ({ name, title, className, ...props }: IconProps) => {
-  const svgClassName = cn("shrink-0", className ?? "size-[1em]");
+  const svgClassName = cn("block shrink-0", className ?? "size-[1em]");
 
   if (title) {
     return (
