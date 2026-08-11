@@ -27,11 +27,24 @@
   --header-height-desktop: 68px;
   --header-height-mobile: 48px;
 
+  --grid-pad-s-desktop: 14px;
+  --grid-pad-m-desktop: 64px;
+  --grid-pad-l-desktop: 140px;
+  --grid-pad-s-mobile: 14px;
+  --grid-pad-m-mobile: 14px;
+  --grid-pad-l-mobile: 14px;
+
   /* Calculated values */
   --header-height: var(--header-height-desktop);
+  --grid-pad-s: var(--grid-pad-s-desktop);
+  --grid-pad-m: var(--grid-pad-m-desktop);
+  --grid-pad-l: var(--grid-pad-l-desktop);
   --transition-duration: 0.3s;
 
   @media (max-width: 768px) {
     --header-height: var(--header-height-mobile);
+    --grid-pad-s: var(--grid-pad-s-mobile);
+    --grid-pad-m: var(--grid-pad-m-mobile);
+    --grid-pad-l: var(--grid-pad-l-mobile);
   }
 }

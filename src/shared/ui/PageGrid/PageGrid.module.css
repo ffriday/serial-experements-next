@@ -1,0 +1,23 @@
+.pageGrid {
+  width: 100%;
+}
+
+.pageGrid > * {
+  padding-inline: 0;
+}
+
+.pageGrid > [data-grid-span="s"] {
+  padding-inline: var(--grid-pad-s);
+}
+
+.pageGrid > [data-grid-span="m"] {
+  padding-inline: var(--grid-pad-m);
+}
+
+.pageGrid > [data-grid-span="l"] {
+  padding-inline: var(--grid-pad-l);
+}
+
+.pageGrid > [data-grid-span="full"] {
+  padding-inline: 0;
+}

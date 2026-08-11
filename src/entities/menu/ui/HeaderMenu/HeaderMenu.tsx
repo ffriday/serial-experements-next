@@ -20,7 +20,7 @@ export const HeaderMenu = async () => {
     const menu = await getMenu();
     roots = menu.root
       .map((id) => menu.nodes[id])
-      .filter((item): item is CatalogMenuItemDto => item != null);
+      .filter((item) => item != null);
   } catch {
     // Missing env / API should not break the whole layout.
   }
@@ -35,7 +35,7 @@ export const HeaderMenu = async () => {
 
   return (
     <nav aria-label="Main">
-      <ul className="flex flex-wrap gap-4">
+      <ul className="flex gap-4">
         {roots.map((item) => (
           <li key={item.id}>
             <a href={item.url}>{item.name}</a>

@@ -5,6 +5,7 @@ export const DataAttr = {
   transparency: "data-transparency",
   scrolled: "data-scrolled",
   scrollDirection: "data-scroll-direction",
+  gridSpan: "data-grid-span",
 } as const;
 
 export type DataAttrKey = keyof typeof DataAttr;

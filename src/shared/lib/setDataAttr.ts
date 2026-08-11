@@ -1,11 +1,17 @@
-import { DataAttr, type DataAttrKey, type ScrollDirectionType } from '@/shared/constants/dataAttributes';
-import type { ColorSetType, TransparencyType } from '@/shared/types/view';
+import {
+  DataAttr,
+  type DataAttrKey,
+  type ScrollDirectionType,
+} from "@/shared/constants/dataAttributes";
+import type { GridSpanType } from "@/shared/types/grid";
+import type { ColorSetType, TransparencyType } from "@/shared/types/view";
 
 type DataAttrValueMap = {
   colorSet: ColorSetType;
   transparency: TransparencyType;
   scrolled: boolean;
   scrollDirection: ScrollDirectionType;
+  gridSpan: GridSpanType;
 };
 
 export function setDataAttr<K extends DataAttrKey>(

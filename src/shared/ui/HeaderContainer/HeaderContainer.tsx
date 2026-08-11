@@ -1,5 +1,6 @@
 "use client";
 import { useRefScrollState } from '@/shared/hooks/useRefScrollState';
+import { GridItem, PageGrid } from "@/shared/ui/PageGrid";
 import s from './HeaderContainer.module.css';
 
 export type HeaderContainerProps = {
@@ -11,7 +12,11 @@ export const HeaderContainer = ({ children }: HeaderContainerProps) => {
 
   return (
     <header ref={ref} className={s.headerContainer}>
-      {children}
+      <PageGrid>
+        <GridItem span="m">
+          {children}
+        </GridItem>
+      </PageGrid>
     </header>
   );
 };
